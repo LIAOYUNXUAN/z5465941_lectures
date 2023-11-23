@@ -32,10 +32,7 @@ def get_data0(tic):
         Ticker
 
     """
-    df = yf.download(tic,
-                     start=START,
-                     end=END,
-                     )
+    df = yf.download(tic, start=START, end=END)
     df.to_csv(PRC_CSV)
 
 
@@ -53,10 +50,7 @@ def get_data1(tic):
     """
     filename = f'{tic}_prc.csv'
     pth = os.path.join(tk_cfg.DATADIR , filename)
-    df = yf.download(tic,
-                     start=START,
-                     end=END,
-                     )
+    df = yf.download(tic, start=START, end=END)
     df.to_csv(pth)
 
 
@@ -70,7 +64,7 @@ def load_prc0(tic):
 
     """
     filename = f'{tic}_prc.csv'
-    pth = os.path.join(tk_cfg.DATADIR , filename)
+    pth = os.path.join(tk_cfg.DATADIR, filename)
     df = pd.read_csv(pth)
     print(df)
 
@@ -85,7 +79,7 @@ def load_prc1(tic):
 
     """
     filename = f'{tic}_prc.csv'
-    pth = os.path.join(tk_cfg.DATADIR , filename)
+    pth = os.path.join(tk_cfg.DATADIR, filename)
     df = pd.read_csv(pth)
 
     d = {c:c.lower() for c in df.columns}
@@ -102,7 +96,7 @@ def load_prc1(tic):
     df.info()
 
 if __name__ == "__main__":
-    get_data0(tic=TIC)
+    #get_data0(tic=TIC)
     #get_data1(tic=TIC)
     #load_prc0(tic=TIC)
     #load_prc1(tic=TIC)
